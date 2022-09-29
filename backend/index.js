@@ -2,11 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = 4000;
-
+import { rollNumber } from "../frontend/src/Dice"
 app.use(cors());
 
 let color = {
-  r: 0,
+  r: 0+rollNumber,
   g: 255,
   b: 0,
 };

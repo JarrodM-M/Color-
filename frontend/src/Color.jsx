@@ -1,4 +1,5 @@
 import { useRequest } from "./api";
+import {rollNumber} from './Dice'
 
 export function Color() {
   const data = useRequest("/");
