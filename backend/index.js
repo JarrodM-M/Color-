@@ -1,12 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const session = require('express-session')
 const app = express();
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 const port = 4000;
-import { rollNumber } from "../frontend/src/Dice"
 app.use(cors());
 
+const rollDice = () => Math.floor((Math.random() * 50) + 1)
+
+
+
 let color = {
-  r: 0+rollNumber,
+  r: 0,
   g: 255,
   b: 0,
 };
@@ -16,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.put("/r/:amount", (req, res) => {
-  const amount = Number(req.params.amount);
+  const amount = rollDice();
   color.r += amount;
 });
 
