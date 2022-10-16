@@ -14,4 +14,4 @@ export function useRequest(path) {
   }, [path]);
 
   return data;
-}
+};

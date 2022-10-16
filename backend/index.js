@@ -8,19 +8,17 @@ app.use(cors());
 
 const rollDice = () => Math.floor((Math.random() * 50) + 1)
 
-
-
 let color = {
   r: 0,
   g: 255,
   b: 0,
 };
 
-app.get("/", (req, res) => {
+app.get("/", (err, req, res) => {
   res.json({ color });
 });
 
-app.put("/r/:amount", (req, res) => {
+app.put("/r", (req, res) => {
   const amount = rollDice();
   color.r += amount;
 });
