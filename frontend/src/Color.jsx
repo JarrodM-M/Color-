@@ -3,8 +3,6 @@ import { useRequest } from "./api";
 export function Color() {
   const data = useRequest("/");
 
-  console.log({ data });
-
   if (!data) return <p>loading...</p>;
 
   const {
