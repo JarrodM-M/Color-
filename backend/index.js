@@ -14,9 +14,10 @@ let color = {
   b: 0,
 };
 
-const randomColorNumber = (Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+const randomColorNumber = () => {};
 
-const colorGenerator = (x, red, green, blue) => {
+const colorGenerator = (red, green, blue) => {
+	let x = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 	let y = '';
 	if (x === 1) { y = red }
 	else if (x === 2){ y = blue }
@@ -30,7 +31,8 @@ app.get("/", (req, res) => {
 
 app.put("/r", (req, res) => {
   const amount = rollDice();
-  const colorPick = colorGenerator(randomColorNumber, color.r, color.g, color.b) 
+  const colorPick = colorGenerator(color.r, color.g, color.b)
+  colorPick += amount
   res.json({amount})
 });
 
