@@ -1,7 +1,5 @@
 import Cookies from "js-cookie";
 
-window.Cookies = Cookies;
-
 export function NoMoreCookies() {
   const handleClick = () => {
     Cookies.remove("connect.sid");
