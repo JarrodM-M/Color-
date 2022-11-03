@@ -14,13 +14,24 @@ let color = {
   b: 0,
 };
 
-app.get("/", (err, req, res) => {
+const randomColorNumber = (Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+
+const colorGenerator = (x, red, green, blue) => {
+	let y = '';
+	if (x === 1) { y = red }
+	else if (x === 2){ y = blue }
+	else if (x === 3){ y = green }
+	return y
+}
+
+app.get("/", (req, res) => {
   res.json({ color });
 });
 
 app.put("/r", (req, res) => {
   const amount = rollDice();
-  color.r += amount;
+  const colorPick = colorGenerator(randomColorNumber, color.r, color.g, color.b) 
+  res.json({amount})
 });
 
 app.listen(port, () => {

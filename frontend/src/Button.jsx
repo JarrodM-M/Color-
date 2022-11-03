@@ -1,7 +1,8 @@
 import { useRequest } from "./api";
 
-export function Dice() {
+export function Button() {
 	const amount = useRequest("/r/:amount")
+	const refresh = useRequest("/")
 	const handleClick = () =>{
 		amount
 	}

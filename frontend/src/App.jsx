@@ -1,8 +1,8 @@
 import { Color } from "./Color";
-import { Dice } from './Dice';
+import { Button } from './Button';
 
 function App() {
-  return <><Color /><Dice /></>;
+  return <><Color /><Button /></>;
 }
 
 export default App;
